@@ -1,4 +1,4 @@
-package com.tv.uicomponents.elements.pageobjects;
+package com.tv.uicomponents.pageobjects;
 
 import java.time.Duration;
 
