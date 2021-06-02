@@ -4,9 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -30,7 +28,7 @@ public class DriverFactory {
 			case "Firefox":
 				driver = drivers.get("Firefox");
 				if (driver == null) {
-				  System.setProperty("webdriver.firefox.driver", firefoxdriverpath);		
+				  System.setProperty("webdriver.firefox.driver", prop.getProperty("firefoxdriverpath"));		
 				  driver = new FirefoxDriver();
 				  drivers.put("Firefox", driver);
 				}
@@ -38,7 +36,7 @@ public class DriverFactory {
 			case "IE":
 				driver = drivers.get("IE");
 				if (driver == null) {
-					System.setProperty("webdriver.ie.driver",iedriverpath);
+					System.setProperty("webdriver.ie.driver",prop.getProperty("iedriverpath"));
 					driver = new InternetExplorerDriver();
 					drivers.put("IE", driver);
 				}
@@ -46,7 +44,7 @@ public class DriverFactory {
 			case "Chrome":
 				driver = drivers.get("Chrome");
 				if (driver == null) {
-					System.setProperty("webdriver.chrome.driver",chromedriverpath);
+					System.setProperty("webdriver.chrome.driver",prop.getProperty("chromedriverpath"));
 					driver = new ChromeDriver();
 					drivers.put("Chrome", driver);
 				}
