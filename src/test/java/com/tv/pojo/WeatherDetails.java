@@ -1,5 +1,11 @@
 package com.tv.pojo;
 
+/**
+* POJO for storing weather information
+*
+* @author Harsh Sengar
+*/
+
 public class WeatherDetails {
 
 	private String condition;
@@ -63,8 +69,8 @@ public class WeatherDetails {
 
 	@Override
 	public String toString() {
-		return "Condition : " + condition + "\n Wind:" + wind + "\n Humidity: " + humidity + "\n Temp in Degrees:"
-				+ celsius + "\n Temp in Fahrenheit:" + fahrenheit;
+		return "Condition : " + condition + "\n Wind:" + wind + "\n Humidity: " + humidity + "\n Temp in Degrees: "
+				+ celsius + "\n Temp in Fahrenheit: " + fahrenheit;
 	}
 
 }
