@@ -27,3 +27,5 @@ hs_err_pid*
 *.classpath*
 *.settings/*
 .gitignore
+*.DS_Store*
+*test-output/*
