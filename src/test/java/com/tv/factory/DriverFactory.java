@@ -9,6 +9,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
+
+/**
+* Factory class for driver lifecycle
+*
+* @author Harsh Sengar
+*/
+
 public class DriverFactory {
 
 	private static Map<String, WebDriver> drivers = new HashMap<String, WebDriver>();
