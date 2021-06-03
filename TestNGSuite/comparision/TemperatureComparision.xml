@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Verify Temperature">
+
+	<parameter name="pageTitle" value="NDTV Weather - Weather in your Indian City" />
+	<parameter name="city" value="Bengaluru" />
+
+	<test name="Compare temperature between web and api ">
+		<classes>
+			<class name="com.tv.uicomponents.tests.ComparisionTest" />
+		</classes>
+	</test>
+
+</suite>

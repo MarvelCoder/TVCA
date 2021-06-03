@@ -9,13 +9,9 @@ package com.tv.pojo;
 public class WeatherDetails {
 
 	private String condition;
-
 	private String wind;
-	
 	private String humidity;
-	
 	private double celsius;
-	
 	private double fahrenheit;
 	
 	public WeatherDetails(String condition, String wind, String humidity, double celsius, double fahrenheit) {

@@ -53,6 +53,17 @@ public class Weather {
 		this.driver = driver;
 	}
 	
+	
+	/**
+	 * Verify page title
+	 *
+	 * @return void
+	 */
+	public boolean verifyPageTitle(String title){
+	
+		return driver.getTitle().contains(title);
+	}
+	
 	/**
 	 * Search and select city required
 	 *
@@ -77,19 +88,18 @@ public class Weather {
 	/**
 	 * Get city temperature i.e. celsius and fahrenheit
 	 *
-	 * @return double[]
+	 * @return boolean
 	 * @throws ElementNotVisibleException
 	 * @throws WebDriverException
 	 */
-	public double[] getCityTemperature(String city) {
+	public boolean verifyCityTemperature(String city) {
 		
-		double[] dbl = null;
-		
+		boolean flag = false;
 		try {
 			
 			for(WebElement el:cityWeatherOuterContainer) {
 				if(el.getAttribute("title").equalsIgnoreCase(city)) {
-					dbl = getCelsiusAndFahrenheit(el.findElements(By.xpath("div/span")));
+					flag = IsCelsiusAndFahrenheitDouble(el.findElements(By.xpath("div/span")));
 				}
 					
 			}
@@ -99,8 +109,7 @@ public class Weather {
 		}catch(WebDriverException e) {
 			throw new WebDriverException("WebDriver issue.");
 		}
-		
-		return dbl;
+		return flag;
 	}
 	
 	/**
@@ -166,22 +175,23 @@ public class Weather {
 	}
 	
 	/**
-	 * Get celsius and fahrenheit from WebElement
+	 * Check celsius and fahrenheit are double values
 	 *
-	 * @return double[]
+	 * @return boolean
 	 */
-	private double[] getCelsiusAndFahrenheit(List<WebElement> element) {
+	private boolean IsCelsiusAndFahrenheitDouble(List<WebElement> element) {
 		
-		double db[] = new double[2];
+		String str ;
 		
-		int i=0;
-		
-		for(WebElement el:element) {
-			db[i] = Double.parseDouble(el.getText().replaceAll("[°C°F].*", ""));
-			i++;
-		}
-		
-		return db;
+		try {
+			for(WebElement el:element) {
+				str = el.getText().replaceAll("\\u2103,\\u2109", "");
+				Double.parseDouble(str);
+			}
+			return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
 	}
 	
 	/**
